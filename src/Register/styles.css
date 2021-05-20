@@ -1,0 +1,22 @@
+.main {
+  display: flex;
+  justify-content: center;
+  background-color: #d5d5d52e;
+  margin: auto;
+  flex-direction: column;
+  width: 60%;
+  margin-top: 30px;
+
+}
+
+.registercontainer {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.registerinputcontainer {
+  justify-content: center;
+ margin: auto;
+ width: 50%;
+ padding-bottom: 30px;
+}

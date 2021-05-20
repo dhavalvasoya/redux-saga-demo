@@ -1,0 +1,35 @@
+.headercontainer {
+  display: flex;
+  background-color: #d5d5d5;
+  justify-content: space-between;
+  padding: 15px;
+}
+.headeroption {
+  display: flex;
+}
+.headermenuoption {
+  padding: 0px 10px;
+  color: black;
+  text-decoration: none;
+}
+.headermenuoption:hover {
+  color: rgb(40, 43, 38);
+}
+.bodycontainer {
+  padding: 20px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.footercontainer {
+  padding-bottom: 10px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  background-color: lightgray;
+}
+.footercontent {
+ color: black;
+}

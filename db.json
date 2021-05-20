@@ -1,0 +1,37 @@
+{
+  "userData": [
+    {
+      "name": "Dhaval",
+      "email": "dhaval18@gmail.com",
+      "password": "123123",
+      "confirmPassword": "123123",
+      "phoneNo": 9909956385,
+      "address": "12- vid road near by, set,Martin school katargam ",
+      "skill": [
+        "html",
+        "css",
+        "react js",
+        "js"
+      ],
+      "pinCode": 365003,
+      "course": "B.COM",
+      "city": "surat",
+      "country": "India",
+      "id": 1
+    },
+    {
+      "name": "Dhaval123123",
+      "mail": "test@gmail.com",
+      "phoneNo": "1231231231",
+      "password": "123123123",
+      "id": 2
+    },
+    {
+      "name": "Dhaval123123",
+      "mail": "test@gmail.com",
+      "phoneNo": "1231231231",
+      "password": "123123123",
+      "id": 3
+    }
+  ]
+}
