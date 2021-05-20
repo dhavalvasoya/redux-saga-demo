@@ -1,0 +1,35 @@
+.main {
+    display: flex;
+    justify-content: center;
+    background-color: #d5d5d54d;
+    margin: auto;
+    flex-direction: column;
+    width: 60%;
+    margin-top: 30px;
+  }
+  
+  .registercontainer {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .registerinputcontainer {
+    justify-content: center;
+    margin: auto;
+    width: 50%;
+    padding-bottom: 30px;
+  }
+  .footercontainer {
+    padding-bottom: 10px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    background-color: lightgray;
+  }
+  .footercontent {
+    color: black;
+  }
+  

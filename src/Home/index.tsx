@@ -7,7 +7,6 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import { TableFooter } from '@material-ui/core';
 import { NavLink } from "react-router-dom";
 
 import "./styles.css";
@@ -153,7 +152,6 @@ const Home = () => {
             </Button>
           </CardActions>
         </Card>
-       
       </div>
   <div className="footercontainer">
       <p className="footercontent">Copyright @2017 | Designed With by </p>

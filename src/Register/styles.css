@@ -6,7 +6,6 @@
   flex-direction: column;
   width: 60%;
   margin-top: 30px;
-
 }
 
 .registercontainer {
@@ -16,7 +15,20 @@
 }
 .registerinputcontainer {
   justify-content: center;
- margin: auto;
- width: 50%;
- padding-bottom: 30px;
+  margin: auto;
+  width: 50%;
+  padding-bottom: 30px;
+}
+.footercontainer {
+  padding-bottom: 10px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  background-color: lightgray;
+}
+.footercontent {
+  color: black;
 }

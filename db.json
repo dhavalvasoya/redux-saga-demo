@@ -32,6 +32,27 @@
       "phoneNo": "1231231231",
       "password": "123123123",
       "id": 3
+    },
+    {
+      "name": "test",
+      "mail": "test@gmail.com",
+      "phoneNo": "329034785",
+      "password": "123123",
+      "id": 4
+    },
+    {
+      "name": "dhaval",
+      "mail": "test@gmail.com",
+      "phoneNo": "123456987",
+      "password": "2342345",
+      "id": 5
+    },
+    {
+      "name": "test888",
+      "mail": "test81@gmail.com",
+      "phoneNo": "98562536",
+      "password": "78523",
+      "id": 6
     }
   ]
 }
