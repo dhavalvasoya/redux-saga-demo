@@ -17,7 +17,9 @@
 }
 .bodycontainer {
   padding: 20px;
-  display: flex;
+  margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
   justify-content: space-evenly;
 }
 .footercontainer {

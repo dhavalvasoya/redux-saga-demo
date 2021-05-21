@@ -53,6 +53,34 @@
       "phoneNo": "98562536",
       "password": "78523",
       "id": 6
+    },
+    {
+      "name": "dhaval",
+      "mail": "test@gmail.com",
+      "phoneNo": "343234432",
+      "password": "123123",
+      "id": 7
+    },
+    {
+      "name": "dhaval",
+      "mail": "test@gmail.com",
+      "phoneNo": "78569856985",
+      "password": "25367",
+      "id": 8
+    },
+    {
+      "name": "dhaval",
+      "mail": "test@gmail.com",
+      "phoneNo": "9867567644",
+      "password": "123123",
+      "id": 9
+    },
+    {
+      "name": "dhaval",
+      "mail": "test@gmail.com",
+      "phoneNo": "8758896325",
+      "password": "123123",
+      "id": 10
     }
   ]
 }
