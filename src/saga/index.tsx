@@ -23,6 +23,8 @@ export function* onLoadPost() {
   yield takeLatest("LOAD_POST_START", onLoadPostStartAsync);
 }
 
+
+//login data compare
 export const loadLoginApi = async (data: any) =>
   await axios.get(`http://localhost:3003/userData`);
 
@@ -33,12 +35,11 @@ export function* onLoadLoginAsync(data: any): any {
     let data1 = data.payload;
     let loginUserData = yield user.find(
       (value: any) =>
-        value.name === data1.name && value.password === data1.password
+        value.mail === data1.email && value.password === data1.password
     );
     if (loginUserData) {
       localStorage.setItem("login", JSON.stringify(true));
       localStorage.setItem("user", JSON.stringify(loginUserData));
-      console.log(loginUserData, "result");
     }
 
     yield put(loginUserSuccess(response.data));
@@ -46,6 +47,6 @@ export function* onLoadLoginAsync(data: any): any {
     yield put(loginUserFail(error));
   }
 }
-export function* onLoginUser() {
+export function* onLoginUser() {   
   yield takeLatest("LOGIN_USER_REQUSET", onLoadLoginAsync);
 }

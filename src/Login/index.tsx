@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import clsx from "clsx";
@@ -9,20 +9,15 @@ import {
   createStyles,
   createMuiTheme,
 } from "@material-ui/core/styles";
-import IconButton from "@material-ui/core/IconButton";
-import OutlinedInput from "@material-ui/core/OutlinedInput";
-import InputLabel from "@material-ui/core/InputLabel";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import FormControl from "@material-ui/core/FormControl";
-import Visibility from "@material-ui/icons/Visibility";
-import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import TextField from "@material-ui/core/TextField";
-import { green } from "@material-ui/core/colors";
-import Button from "@material-ui/core/Button";
-
-import "./styles.css";
 import { useDispatch } from "react-redux";
 import { loginUserRequset } from "../Action";
+import TextField from "@material-ui/core/TextField";
+import { red } from "@material-ui/core/colors";
+import Button from "@material-ui/core/Button";
+import { useFormik } from "formik";
+import * as yup from "yup";
+
+import "./styles.css";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -42,47 +37,38 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-interface State {
-  name: string;
-  password: string;
-  showPassword: boolean;
-}
+const validationSchema = yup.object({
+  email: yup
+    .string()
+    .email("Enter a valid email")
+    .required("Email is required"),
+  password: yup
+    .string()
+    .min(8, "Password should be of minimum 8 characters length")
+    .required("Password is required"),
+});
 
 const Login = () => {
   const classes = useStyles();
-  const [values, setValues] = React.useState<State>({
-    name: "",
-    password: "",
-    showPassword: false,
-  });
+
   const dispatch = useDispatch();
-
-  const handleChange =
-    (prop: keyof State) => (event: React.ChangeEvent<HTMLInputElement>) => {
-      setValues({ ...values, [prop]: event.target.value });
-    };
-
-  const handleClickShowPassword = () => {
-    setValues({ ...values, showPassword: !values.showPassword });
-  };
-
-  const handleMouseDownPassword = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => {
-    event.preventDefault();
-  };
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      console.log(values);
+      dispatch(loginUserRequset(values));
+    },
+  });
 
   const theme = createMuiTheme({
     palette: {
-      primary: green,
+      primary: red,
     },
   });
-  const handlelogin = () => {
-    if (values.name && values.password !== undefined) {
-      dispatch(loginUserRequset(values));
-      console.log(values);
-    }
-  };
 
   return (
     <>
@@ -106,50 +92,44 @@ const Login = () => {
         <div className="registercontainer">
           <h3>Login</h3>
         </div>
-        <div className="registerinputcontainer">
-          <ThemeProvider theme={theme}>
-            <TextField
-              className={classes.margin}
-              label="userName"
-              variant="outlined"
-              id="mui-theme-provider-outlined-input"
-              onChange={handleChange("name")}
-              value={values.name}
-            />
-          </ThemeProvider>
-          <FormControl
-            className={clsx(classes.margin, classes.textField)}
-            variant="outlined"
-          >
-            <InputLabel htmlFor="outlined-adornment-password">
-              Password
-            </InputLabel>
-            <OutlinedInput
-              id="outlined-adornment-password"
-              type={values.showPassword ? "text" : "password"}
-              value={values.password}
-              onChange={handleChange("password")}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                    edge="end"
-                  >
-                    {values.showPassword ? <Visibility /> : <VisibilityOff />}
-                  </IconButton>
-                </InputAdornment>
-              }
-              labelWidth={70}
-            />
-          </FormControl>
-        </div>
-        <div className="registercontainer">
-          <Button variant="contained" color="primary" onClick={handlelogin}>
-            Login
-          </Button>
-        </div>
+        <form onSubmit={formik.handleSubmit}>
+          <div className="registerinputcontainer">
+            <ThemeProvider theme={theme}>
+              <TextField
+                name="email"
+                label="Email"
+                className={classes.margin}
+                variant="outlined"
+                id="mui-theme-provider-outlined-input"
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                error={formik.touched.email && Boolean(formik.errors.email)}
+                helperText={formik.touched.email && formik.errors.email}
+              />
+            </ThemeProvider>
+            <ThemeProvider theme={theme}>
+              <TextField
+                className={clsx(classes.margin, classes.textField)}
+                variant="outlined"
+                id="outlined-adornment-password"
+                name="password"
+                label="Password"
+                type="password"
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                error={
+                  formik.touched.password && Boolean(formik.errors.password)
+                }
+                helperText={formik.touched.password && formik.errors.password}
+              />
+            </ThemeProvider>
+          </div>
+          <div className="registercontainer">
+            <Button variant="contained" color="primary" fullWidth type="submit">
+              Submit
+            </Button>
+          </div>
+        </form>
       </div>
       <div className="footercontainer">
         <p className="footercontent">Copyright @2021 | Designed With by ....</p>

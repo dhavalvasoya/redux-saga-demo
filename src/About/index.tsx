@@ -28,12 +28,11 @@ function About() {
           </div>
         </div>
       </header>
-      <div>about page</div>
       <Button onClick={handleLogout} variant="contained" color="secondary">
         Logout
       </Button>
       <div className="footercontainer">
-        <p className="footercontent">Copyright @2021 | Designed With by </p>
+        <p className="footercontent">Copyright @2021 | Designed With by ...</p>
       </div>
     </>
   );

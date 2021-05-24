@@ -12,6 +12,8 @@
     text-align: center;
     padding-top: 30px;
     padding-bottom: 30px;
+    width: fit-content;
+    margin: auto;
   }
   .registerinputcontainer {
     justify-content: center;
@@ -19,6 +21,7 @@
     /* width: 50%; */
     width: auto;
     padding-bottom: 30px;
+    text-align: center;
   }
   .footercontainer {
     padding-bottom: 10px;

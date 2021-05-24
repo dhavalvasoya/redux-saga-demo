@@ -81,6 +81,13 @@
       "phoneNo": "8758896325",
       "password": "123123",
       "id": 10
+    },
+    {
+      "name": "dhaval",
+      "mail": "test@gmail.com",
+      "phoneNo": "123123123",
+      "password": "123123123",
+      "id": 11
     }
   ]
 }

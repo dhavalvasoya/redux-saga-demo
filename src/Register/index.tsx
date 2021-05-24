@@ -65,6 +65,8 @@ const Register = () => {
     }
   };
   const classes = useStyles();
+
+
   return (
     <>
       <header>
@@ -101,6 +103,7 @@ const Register = () => {
                 name="name"
                 onChange={handleChange}
                 value={register.name}
+            
               />
               <ValidationTextField
                 className={classes.margin}
@@ -151,7 +154,7 @@ const Register = () => {
         </div>
       </div>
       <div className="footercontainer">
-        <p className="footercontent">Copyright @2017 | Designed With by </p>
+        <p className="footercontent">Copyright @2021 | Designed With by ... </p>
       </div>
     </>
   );
