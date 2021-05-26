@@ -1,10 +1,8 @@
-import React, { useState } from "react";
-import {
-  createStyles,
-  Theme,
-  withStyles,
-  makeStyles,
-} from "@material-ui/core/styles";
+import React from "react";
+import { useFormik } from "formik";
+import * as yup from "yup";
+
+import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import { NavLink } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
@@ -24,48 +22,41 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const ValidationTextField = withStyles({
-  root: {
-    "& input:valid + fieldset": {
-      borderColor: "green",
-      borderWidth: 2,
-    },
-    "& input:invalid + fieldset": {
-      borderColor: "red",
-      borderWidth: 2,
-    },
-    "& input:valid:focus + fieldset": {
-      borderLeftWidth: 2,
-      padding: "4px !important", // override inline-style
-    },
-  },
-})(TextField);
+const validationSchema = yup.object({
+  name: yup
+    .string()
+    .min(3, "UserName should be of minimum 3 characters length")
+    .required("name is required"),
+  email: yup
+    .string()
+    .email("Enter a valid email")
+    .required("Email is required"),
+  phone: yup
+    .string()
+    .min(10, "Phone Number should be of minimum 10 characters length")
+    .required("Phone Number is required"),
+  password: yup
+    .string()
+    .min(8, "Password should be of minimum 8 characters length")
+    .required("Password is required"),
+});
 
 const Register = () => {
-  const [register, setRegister] = useState({
-    name: "",
-    mail: "",
-    phoneNo: "",
-    password: "",
-  });
   const dispatch = useDispatch();
-
-  const handleChange = (e: any) => {
-    setRegister({ ...register, [e.target.name]: e.target.value });
-  };
-  const onSubmitData = (data: any) => {
-    if (
-      register.name &&
-      register.mail &&
-      register.password &&
-      register.phoneNo !== null
-    ) {
-      console.log(register);
-      dispatch(registerUsersRequest(register));
-    }
-  };
   const classes = useStyles();
-
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      phone: "",
+      password: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      console.log(values);
+      dispatch(registerUsersRequest(values));
+    },
+  });
 
   return (
     <>
@@ -76,7 +67,6 @@ const Register = () => {
             <NavLink exact to="/about">
               <a className="headermenuoption">About</a>
             </NavLink>
-
             <NavLink exact to="/login">
               <a className="headermenuoption">Login</a>
             </NavLink>
@@ -86,67 +76,67 @@ const Register = () => {
           </div>
         </div>
       </header>
+
       <div className="main">
         <div className="registercontainer">
           <h3>Register</h3>
         </div>
         <div className="registerinputcontainer">
-          <form onSubmit={(e) => e.preventDefault()}>
+          <form onSubmit={formik.handleSubmit}>
             <div style={{ display: "flex", flexDirection: "column" }}>
-              <ValidationTextField
+              <TextField
                 className={classes.margin}
                 label="Name"
-                required
                 variant="outlined"
                 id="validation-outlined-input"
                 type="text"
                 name="name"
-                onChange={handleChange}
-                value={register.name}
-            
+                value={formik.values.name}
+                onChange={formik.handleChange}
+                error={formik.touched.name && Boolean(formik.errors.name)}
+                helperText={formik.touched.name && formik.errors.name}
               />
-              <ValidationTextField
+              <TextField
                 className={classes.margin}
                 label="Email"
-                required
                 variant="outlined"
                 id="validation-outlined-input"
-                type="text"
-                name="mail"
-                onChange={handleChange}
-                value={register.mail}
+                type="email"
+                name="email"
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                error={formik.touched.email && Boolean(formik.errors.email)}
+                helperText={formik.touched.email && formik.errors.email}
               />
-              <ValidationTextField
+              <TextField
                 className={classes.margin}
                 label="PhoneNo"
-                required
                 variant="outlined"
                 id="validation-outlined-input"
                 type="number"
-                name="phoneNo"
-                onChange={handleChange}
-                value={register.phoneNo}
+                name="phone"
+                value={formik.values.phone}
+                onChange={formik.handleChange}
+                error={formik.touched.phone && Boolean(formik.errors.phone)}
+                helperText={formik.touched.phone && formik.errors.phone}
               />
-              <ValidationTextField
+              <TextField
                 className={classes.margin}
                 label="password"
-                required
                 variant="outlined"
                 id="validation-outlined-input"
                 type="password"
                 name="password"
-                onChange={handleChange}
-                value={register.password}
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                error={
+                  formik.touched.password && Boolean(formik.errors.password)
+                }
+                helperText={formik.touched.password && formik.errors.password}
               />
             </div>
             <div style={{ textAlign: "center" }}>
-              <Button
-                type="submit"
-                onClick={onSubmitData}
-                // onClick={(e) => e.preventDefault()}
-                variant="contained"
-                color="secondary"
-              >
+              <Button variant="contained" color="primary" type="submit">
                 Submit
               </Button>
             </div>

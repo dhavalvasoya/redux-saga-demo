@@ -23,7 +23,6 @@ export function* onLoadPost() {
   yield takeLatest("LOAD_POST_START", onLoadPostStartAsync);
 }
 
-
 //login data compare
 export const loadLoginApi = async (data: any) =>
   await axios.get(`http://localhost:3003/userData`);
@@ -47,6 +46,6 @@ export function* onLoadLoginAsync(data: any): any {
     yield put(loginUserFail(error));
   }
 }
-export function* onLoginUser() {   
+export function* onLoginUser() {
   yield takeLatest("LOGIN_USER_REQUSET", onLoadLoginAsync);
 }

@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
+import { useFormik } from "formik";
+import * as yup from "yup";
 
 import clsx from "clsx";
 import {
@@ -14,8 +16,7 @@ import { loginUserRequset } from "../Action";
 import TextField from "@material-ui/core/TextField";
 import { red } from "@material-ui/core/colors";
 import Button from "@material-ui/core/Button";
-import { useFormik } from "formik";
-import * as yup from "yup";
+
 
 import "./styles.css";
 
@@ -132,7 +133,7 @@ const Login = () => {
         </form>
       </div>
       <div className="footercontainer">
-        <p className="footercontent">Copyright @2021 | Designed With by ....</p>
+        <p className="footercontent">Copyright @2021 | Designed With by ...</p>
       </div>
     </>
   );

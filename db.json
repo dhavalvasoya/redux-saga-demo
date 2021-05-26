@@ -3,20 +3,8 @@
     {
       "name": "Dhaval",
       "email": "dhaval18@gmail.com",
-      "password": "123123",
-      "confirmPassword": "123123",
+      "password": "123123123",
       "phoneNo": 9909956385,
-      "address": "12- vid road near by, set,Martin school katargam ",
-      "skill": [
-        "html",
-        "css",
-        "react js",
-        "js"
-      ],
-      "pinCode": 365003,
-      "course": "B.COM",
-      "city": "surat",
-      "country": "India",
       "id": 1
     },
     {
@@ -88,6 +76,57 @@
       "phoneNo": "123123123",
       "password": "123123123",
       "id": 11
+    },
+    {
+      "name": "",
+      "mail": "",
+      "phoneNo": "",
+      "password": "",
+      "id": 12
+    },
+    {
+      "name": "Dhaval123123",
+      "email": "test@gmail.com",
+      "phoneNo": 2322212123,
+      "password": "123123123",
+      "mail": "test@gmail.com",
+      "id": 13
+    },
+    {
+      "name": "Dhaval123123",
+      "email": "test@gmail.com",
+      "phoneNo": 2322212123,
+      "password": "123123123",
+      "mail": "test@gmail.com",
+      "id": 14
+    },
+    {
+      "name": "Dhaval123123",
+      "email": "foobar@example.c",
+      "phoneNo": 9098907896,
+      "password": "123123123",
+      "id": 15
+    },
+    {
+      "name": "Dhaval123123",
+      "email": "qwe@gmail.com",
+      "phoneNo": "111044",
+      "password": "12312312",
+      "id": 16
+    },
+    {
+      "name": "dhaval",
+      "email": "dhaval@gmail.com",
+      "phone": 7856953250,
+      "password": "12345678",
+      "id": 17
+    },
+    {
+      "name": "mahesh",
+      "email": "mahesh@gmail.com",
+      "phone": 7500236525,
+      "password": "123123123",
+      "id": 18
     }
   ]
 }

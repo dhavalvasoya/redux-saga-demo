@@ -2,10 +2,9 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 import Button from "@material-ui/core/Button";
-
 import "./styles.css";
 
-function About() {
+const About = () => {
   const handleLogout = () => {
     localStorage.clear();
   };
@@ -28,7 +27,7 @@ function About() {
           </div>
         </div>
       </header>
-      <Button onClick={handleLogout} variant="contained" color="secondary">
+      <Button onClick={handleLogout} variant="contained" color="primary">
         Logout
       </Button>
       <div className="footercontainer">
@@ -36,6 +35,6 @@ function About() {
       </div>
     </>
   );
-}
+};
 
 export default About;
