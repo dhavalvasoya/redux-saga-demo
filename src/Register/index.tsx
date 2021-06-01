@@ -39,8 +39,10 @@ const validationSchema = yup.object({
     .string()
     .min(8, "Password should be of minimum 8 characters length")
     .required("Password is required"),
-  passwordConfirm: yup
+  confirmpassword: yup
     .string()
+    .min(8, "Password should be of minimum 8 characters length")
+    .required("Password is required")
     .oneOf([yup.ref("password"), null], "Passwords must match"),
 });
 
@@ -53,7 +55,7 @@ const Register = () => {
       email: "",
       phone: "",
       password: "",
-      passwordConfirm: "",
+      confirmpassword: "",
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
@@ -65,36 +67,36 @@ const Register = () => {
   return (
     <>
       <header>
-        <div className='headercontainer'>
+        <div className="headercontainer">
           <div>logo</div>
-          <div className='headeroption'>
-            <NavLink exact to='/about'>
-              <a className='headermenuoption'>About</a>
+          <div className="headeroption">
+            <NavLink exact to="/about">
+              <a className="headermenuoption">About</a>
             </NavLink>
-            <NavLink exact to='/login'>
-              <a className='headermenuoption'>Login</a>
+            <NavLink exact to="/login">
+              <a className="headermenuoption">Login</a>
             </NavLink>
-            <NavLink exact to='/register'>
-              <a className='headermenuoption'>Register</a>
+            <NavLink exact to="/register">
+              <a className="headermenuoption">Register</a>
             </NavLink>
           </div>
         </div>
       </header>
 
-      <div className='main'>
-        <div className='registercontainer'>
+      <div className="main">
+        <div className="registercontainer">
           <h3>Register</h3>
         </div>
-        <div className='registerinputcontainer'>
+        <div className="registerinputcontainer">
           <form onSubmit={formik.handleSubmit}>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <TextField
                 className={classes.margin}
-                label='Name'
-                variant='outlined'
-                id='validation-outlined-input'
-                type='text'
-                name='name'
+                label="Name"
+                variant="outlined"
+                id="validation-outlined-input"
+                type="text"
+                name="name"
                 value={formik.values.name}
                 onChange={formik.handleChange}
                 error={formik.touched.name && Boolean(formik.errors.name)}
@@ -102,11 +104,11 @@ const Register = () => {
               />
               <TextField
                 className={classes.margin}
-                label='Email'
-                variant='outlined'
-                id='validation-outlined-input'
-                type='email'
-                name='email'
+                label="Email"
+                variant="outlined"
+                id="validation-outlined-input"
+                type="email"
+                name="email"
                 value={formik.values.email}
                 onChange={formik.handleChange}
                 error={formik.touched.email && Boolean(formik.errors.email)}
@@ -114,11 +116,11 @@ const Register = () => {
               />
               <TextField
                 className={classes.margin}
-                label='PhoneNo'
-                variant='outlined'
-                id='validation-outlined-input'
-                type='number'
-                name='phone'
+                label="PhoneNo"
+                variant="outlined"
+                id="validation-outlined-input"
+                type="number"
+                name="phone"
                 value={formik.values.phone}
                 onChange={formik.handleChange}
                 error={formik.touched.phone && Boolean(formik.errors.phone)}
@@ -126,11 +128,11 @@ const Register = () => {
               />
               <TextField
                 className={classes.margin}
-                label='password'
-                variant='outlined'
-                id='validation-outlined-input'
-                type='password'
-                name='password'
+                label="password"
+                variant="outlined"
+                id="validation-outlined-input"
+                type="password"
+                name="password"
                 value={formik.values.password}
                 onChange={formik.handleChange}
                 error={
@@ -140,33 +142,33 @@ const Register = () => {
               />
               <TextField
                 className={classes.margin}
-                label='passwordConfirm'
-                variant='outlined'
-                id='validation-outlined-input'
-                type='password'
-                name='passwordConfirm'
-                value={formik.values.passwordConfirm}
+                label="confirmpassword"
+                variant="outlined"
+                id="validation-outlined-input"
+                type="password"
+                name="confirmpassword"
+                value={formik.values.confirmpassword}
                 onChange={formik.handleChange}
                 error={
-                  formik.touched.passwordConfirm &&
-                  Boolean(formik.errors.passwordConfirm)
+                  formik.touched.confirmpassword &&
+                  Boolean(formik.errors.confirmpassword)
                 }
                 helperText={
-                  formik.touched.passwordConfirm &&
-                  formik.errors.passwordConfirm
+                  formik.touched.confirmpassword &&
+                  formik.errors.confirmpassword
                 }
               />
             </div>
             <div style={{ textAlign: "center" }}>
-              <Button variant='contained' color='primary' type='submit'>
+              <Button variant="contained" color="primary" type="submit">
                 Submit
               </Button>
             </div>
           </form>
         </div>
       </div>
-      <div className='footercontainer'>
-        <p className='footercontent'>Copyright @2021 | Designed With by ... </p>
+      <div className="footercontainer">
+        <p className="footercontent">Copyright @2021 | Designed With by ... </p>
       </div>
     </>
   );
