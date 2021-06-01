@@ -14,6 +14,14 @@
       "password": "123123123123",
       "passwordConfirm": "123123123123",
       "id": 2
+    },
+    {
+      "name": "123",
+      "email": "test@gmail.com",
+      "phone": 7048411425,
+      "password": "123123123",
+      "confirmpassword": "123123123",
+      "id": 3
     }
   ]
 }

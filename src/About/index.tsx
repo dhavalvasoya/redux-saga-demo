@@ -10,7 +10,7 @@ const About = () => {
   };
 
   const loginUser: any = localStorage.getItem("user");
-  console.log(loginUser);
+  // console.log(loginUser);
 
   const userProfile: any = JSON.parse(loginUser);
 

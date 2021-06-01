@@ -7,7 +7,7 @@ import {
   registerUsersSuccess,
 } from "../Action";
 
-//register saga function
+//== register saga function ==\\
 export const loadPostApi = async (data: any) =>
   await axios.post(`http://localhost:3003/userData`, data);
 
