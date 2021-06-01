@@ -34,7 +34,7 @@ export function* onLoadLoginAsync(data: any): any {
     let data1 = data.payload;
     let loginUserData = yield user.find(
       (value: any) =>
-        value.mail === data1.email && value.password === data1.password
+        value.email === data1.email && value.password === data1.password
     );
     if (loginUserData) {
       localStorage.setItem("login", JSON.stringify(true));

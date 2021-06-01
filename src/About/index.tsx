@@ -8,6 +8,14 @@ const About = () => {
   const handleLogout = () => {
     localStorage.clear();
   };
+
+  const loginUser: any = localStorage.getItem("user");
+  console.log(loginUser);
+
+  const userProfile: any = JSON.parse(loginUser);
+
+  console.log(userProfile);
+
   return (
     <>
       <header>
@@ -27,9 +35,16 @@ const About = () => {
           </div>
         </div>
       </header>
-      <Button onClick={handleLogout} variant="contained" color="primary">
-        Logout
-      </Button>
+      {userProfile && (
+        <div style={{ textAlign: "center" }}>
+          <h2>{userProfile.name}</h2>
+        </div>
+      )}
+      <div style={{ textAlign: "center", marginTop: "15px" }}>
+        <Button onClick={handleLogout} variant="contained" color="primary">
+          Logout
+        </Button>
+      </div>
       <div className="footercontainer">
         <p className="footercontent">Copyright @2021 | Designed With by ...</p>
       </div>
